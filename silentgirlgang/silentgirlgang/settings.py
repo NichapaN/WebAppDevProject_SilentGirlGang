@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tpopstore',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
