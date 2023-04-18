@@ -20,5 +20,7 @@ import debug_toolbar
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tpopstore/', include('tpopstore.urls')),    
+    path('buyers/', include('buyers.urls')),
+    path('sellers', include('sellers.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
 ]

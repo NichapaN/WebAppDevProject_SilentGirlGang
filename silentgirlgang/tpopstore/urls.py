@@ -3,6 +3,7 @@ from . import views
 
 # URLConf
 urlpatterns = [
-    # path('orm_test/', views.orm_test),
+    # path('product/', views.product),
+    path('', views.store),
 ]
 
