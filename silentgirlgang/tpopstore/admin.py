@@ -1,9 +1,10 @@
 from django.contrib import admin
 
-from . import models
+import sellers.models as sellers_models
+import buyers.models as buyers_models
 # Register your models here.
 
-@admin.register(models.Agency)
+@admin.register(sellers_models.Agency)
 class AgencyAdmin(admin.ModelAdmin):
     list_per_page = 10
     list_display = [
@@ -14,17 +15,17 @@ class AgencyAdmin(admin.ModelAdmin):
     
     search_fields = ['agency_name']
     
-@admin.register(models.Artist)
+@admin.register(sellers_models.Artist)
 class ArtistAdmin(admin.ModelAdmin):
     list_per_page=10
     search_fields = ['artist_name']
     
-@admin.register(models.Collection)
+@admin.register(sellers_models.Collection)
 class CollectionAdmin(admin.ModelAdmin):
     list_per_page=10
     search_fields = ['title']
     
-@admin.register(models.Product)
+@admin.register(sellers_models.Product)
 class ProductAdmin(admin.ModelAdmin):
     list_per_page = 10
     list_display = [
@@ -51,7 +52,7 @@ class ProductAdmin(admin.ModelAdmin):
             return "OK"
     
 
-@admin.register(models.Customer)
+@admin.register(buyers_models.Customer)
 class CustomerAdmin(admin.ModelAdmin):
     list_per_page = 10    
     list_display = ['first_name','last_name','membership','gender']
@@ -61,27 +62,27 @@ class CustomerAdmin(admin.ModelAdmin):
     #@admin.display(models.Customer)
    
 
-@admin.register(models.Address)
+@admin.register(buyers_models.Address)
 class AddressAdmin(admin.ModelAdmin):
     list_per_page=10
     list_display= ['customer','street','city']
     
     
-@admin.register(models.Cart)
+@admin.register(buyers_models.Cart)
 class CartAdmin(admin.ModelAdmin):
     list_per_page= 10
       
-@admin.register(models.CartItem)
+@admin.register(buyers_models.CartItem)
 class CartItemAdmin(admin.ModelAdmin):
     list_per_page= 10
 
-@admin.register(models.Order)
+@admin.register(buyers_models.Order)
 class OrderAdmin(admin.ModelAdmin):
     list_per_page= 10
     list_display=['placed_at','customer','payment_status']
     list_editable = ['payment_status']
     
-@admin.register(models.OrderItem)
+@admin.register(buyers_models.OrderItem)
 class OrderItemAdmin(admin.ModelAdmin):
     list_per_page= 10
 

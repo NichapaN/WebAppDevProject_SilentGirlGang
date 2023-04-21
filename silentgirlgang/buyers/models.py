@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-
+from sellers.models import Product
 
 class Customer(models.Model):
     #MEMBERSHIP_JADE = 'J'
