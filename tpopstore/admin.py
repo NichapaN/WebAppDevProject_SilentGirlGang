@@ -8,10 +8,13 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
     prepopulated_fields = {'slug': ('name',)}
 
+@admin.register(Artist)
+class ArtistAdmin(admin.ModelAdmin):
+    list_display = ['artist_name']
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['title', 'author', 'slug', 'price',
+    list_display = ['title', 'author', 'artist', 'slug', 'price',
                     'in_stock', 'created', 'updated']
     list_filter = ['in_stock', 'is_active']
     list_editable = ['price', 'in_stock']
