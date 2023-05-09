@@ -33,6 +33,9 @@ class Artist(models.Model):
 
     class Meta:
         ordering = ['artist_name']
+
+    def get_productbyartist_url(self):
+        return reverse('tpopstore:products_by_artist', args=[self.slug])
     
 
 class Product(models.Model):
