@@ -29,6 +29,15 @@
                                 d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
                         </svg>
                     </a>
+                    
+                    <a class="navbar-brand d-flex-inline" href="/">
+                        <span>Agency</span>
+                    </a>
+
+                    <a class="navbar-brand d-flex-inline" href="/">
+                        <span>Artist</span>
+                    </a>
+
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-none d-md-block fw500" href="#" id="navbarDropdown"
@@ -50,6 +59,7 @@
                             </ul>
                         </li>
                     </ul>
+
                     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -62,6 +72,11 @@
                         </div>
                         <span class="fs15 fw500">Shop</span>
                     </button>
+
+                    <a type="button" role="button" href="{% url 'userprofile:agencysignup' %}" 
+                        class="btn btn-outline-secondary border-0 basket-btn">
+                        <span class="fs15 fw500">Vendors page</span>
+                        </a>
                     
                     <a type="button" role="button" href="{% url 'userprofile:customersignup' %}"
                         class="btn btn-outline-secondary border-0 basket-btn">
@@ -154,6 +169,7 @@
 
     <div id="content">{% block content %} {% endblock %}</div>
 
+    
 </body>
 
 </html>
