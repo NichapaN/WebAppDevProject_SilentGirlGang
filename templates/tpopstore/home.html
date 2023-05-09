@@ -19,6 +19,14 @@
         <div class="album py-5">
           <div class="pb-3">
             <h1 class="h3">Popular</h1>
+
+            <div class="search">
+              <form method="get" action="/search/">
+                <input type="search" name="query" placeholder="Search...">
+                <button class="">Search</button>
+              </form>
+            </div>
+
           </div>
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
             {% for product in products %}

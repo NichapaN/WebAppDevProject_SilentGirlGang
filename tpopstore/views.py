@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import get_object_or_404, render
 
 from .models import *
@@ -30,5 +31,14 @@ def products_by_artist(request, artist_slug):
     products = Product.objects.filter(artist=artist)
     return render(request, 'tpopstore/products/searchbyartist.html', {
         'artist': artist,
+        'products': products
+    })
+
+def search(request):
+    query = request.GET.get('query', '')
+    products = Product.objects.filter(Q(title__icontains=query) | Q(description__icontains=query))
+
+    return render(request, 'tpopstore/search.html', {
+        'query': query,
         'products': products
     })
