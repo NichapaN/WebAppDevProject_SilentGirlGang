@@ -8,7 +8,7 @@
     <header class="grid grid-cols-5 p-4 items-center justify-between border-b-4">
         <div class="image font-bold text-gray-600">Image</div>
         <div class="product font-bold text-gray-600">Product</div>
-        <div class="category font-bold text-gray-600">Category</div>
+        <div class="category font-bold text-gray-600">Artist</div>
         <div class="price font-bold text-gray-600">Price</div>
         <div class="inventory font-bold text-gray-600">Inventory</div>
     </header>
@@ -17,7 +17,7 @@
             <a href="{{ product.get_product_url_for_vendor }}" class="grid grid-cols-5 p-4 bg-gray-50 rounded-lg shadow-md hover:bg-gray-100 hover:shadow-gray-500/50">
                 <img class="img-fluid object-fill h-20 w-20 rounded-md" alt="Responsive image" src="{{ product.image.url }}">
                 <h2 class="text-sm">{{ product.title }}</h2>
-                <p>{{ product.category }}</p>
+                <p>{{ product.artist }}</p>
                 <p class="text-sm text-gray-600">{{ product.price }} baht</p>
                 <p>{{ product.get_inventory_status }}</p>
             </a>
