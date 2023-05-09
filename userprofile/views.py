@@ -40,3 +40,4 @@ def agencysignup(request):
         form = AgencySignUpForm()
 
     return render(request, 'account/agencysignup.html', {'form': form})
+
