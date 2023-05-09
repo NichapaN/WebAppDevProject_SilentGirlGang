@@ -62,6 +62,10 @@
                         </div>
                         <span class="fs15 fw500">Shop</span>
                     </button>
+                    
+                    <a type="button" role="button" href="{% url 'userprofile:customersignup' %}">
+                        <span class="fs15 fw500">Signup</span>
+                    </a>
 
                     {% if user.is_authenticated %}
                     <a type="button" role="button" href=""
