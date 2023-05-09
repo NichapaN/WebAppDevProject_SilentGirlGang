@@ -12,13 +12,16 @@ def product_listing(request):
         'products': products
     })
 
-def edit_product_details(request):
-    return render(request, 'vendors/edit_product_details.html')
+def edit_product_details(request, vendors_product):
+    product = get_object_or_404(Product, slug=vendors_product)
+    return render(request, 'vendors/edit_product_details.html', {
+        'product': product
+    })
 
 def artists(request):
     products = Product.objects.all()
     return render(request, 'vendors/artists.html', {
-        'products': products # to be edited to artists
+        'products': products # to be edited to
     })
 
 def account(request):

@@ -14,7 +14,7 @@
     </header>
     {% for product in products %}
         <div class="product w-full p-2">
-            <a href="{% url 'vendors:editproductdetails' %}" class="grid grid-cols-5 p-4 bg-gray-50 rounded-lg shadow-md hover:bg-gray-100 hover:shadow-gray-500/50">
+            <a href="{{ product.get_product_url_for_vendor }}" class="grid grid-cols-5 p-4 bg-gray-50 rounded-lg shadow-md hover:bg-gray-100 hover:shadow-gray-500/50">
                 <img class="img-fluid object-fill h-20 w-20 rounded-md" alt="Responsive image" src="{{ product.image.url }}">
                 <h2 class="text-sm">{{ product.title }}</h2>
                 <p>{{ product.category }}</p>
