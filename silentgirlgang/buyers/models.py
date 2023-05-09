@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.conf import settings
 
 # Create your models here.
 from sellers.models import Product
@@ -25,6 +27,7 @@ class Customer(models.Model):
         (GENDER_OTHER, 'Others'),
     ]
     
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     gender = models.CharField(max_length=10,
@@ -38,7 +41,7 @@ class Customer(models.Model):
         default=MEMBERSHIP_BRONZE)
 
     def __str__(self):
-        return self.first_name
+        return self.user.first_name
 
 class Address(models.Model):
     street = models.CharField(max_length=255)

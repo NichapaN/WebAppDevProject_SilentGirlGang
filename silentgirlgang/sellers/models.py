@@ -1,16 +1,17 @@
 from django.db import models
-
+from django.conf import settings
 # Create your models here.
 
 
 class Agency(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     agency_name = models.CharField(max_length=255)
     phone = models.CharField(max_length=10)
     email = models.EmailField(unique=True)
     # logo
 
     def __str__(self):
-        return self.agency_name
+        return self.user.agency_name
 
     class Meta:
         ordering = ['agency_name']

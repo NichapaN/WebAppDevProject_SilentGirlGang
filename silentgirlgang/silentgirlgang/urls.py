@@ -16,10 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import debug_toolbar
+from tpopstore.views import frontpage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tpopstore/', include('tpopstore.urls')),    
+    path('tpopstore/', include('tpopstore.urls')),
+    path('',frontpage, name='frontpage'),
+    path('account/', include('account.urls')),
     path('buyers/', include('buyers.urls')),
     path('sellers/', include('sellers.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
