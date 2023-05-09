@@ -84,7 +84,7 @@
                     </a>
 
                     {% if user.is_authenticated %}
-                    <a type="button" role="button" href="tpopstore:product_all"
+                    <a type="button" role="button" href="{% url 'userprofile:logout' %}"
                         class="btn btn-outline-secondary border-0 basket-btn">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
