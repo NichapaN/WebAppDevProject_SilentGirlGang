@@ -41,6 +41,13 @@ class Product(models.Model):
         verbose_name_plural = 'Products'
         ordering = ('-created',)
 
+    def get_inventory_status(self):
+        if self.in_stock == True:
+            status = 'In stock'
+        else:
+            status = 'Out of stock'
+        return status
+
     def get_absolute_url(self):
         return reverse('tpopstore:product_detail', args=[self.slug])
 

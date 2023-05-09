@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tpopstore',
+    'basket',
+    'vendors',
     'debug_toolbar',
 ]
 

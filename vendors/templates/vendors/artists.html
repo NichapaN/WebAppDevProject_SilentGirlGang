@@ -1,0 +1,18 @@
+{% extends 'vendors/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="title p-4 text-3xl font-bold border-b-2">My Artists</div>
+    <div class="grid grid-cols-4 gap-4 place-items-center">
+        {% for product in products %}
+            <div class="artists box-content h-40 w-40 mt-4 p-4">
+                <div class="place-content-center justify-center">
+                    <a href="{% url 'vendors:editproductdetails' %}">
+                        <img class="object-fill h-28 w-28 rounded-full mx-auto shadow-inner hover:shadow-lg hover:shadow-slate-300" alt="Responsive image" src="{{ product.image.url }}">
+                        <div class="artistname py-4 md:text-center font-medium hover:font-semibold hover:text-pink-600">{{ product.category }}</div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

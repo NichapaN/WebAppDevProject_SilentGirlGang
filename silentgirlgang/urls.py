@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('tpopstore.urls', namespace='tpopstore')),
     path('basket/', include('basket.urls', namespace='basket')),
+    path('vendors/', include('vendors.urls', namespace='vendors'))
 ]
 
 if settings.DEBUG:
