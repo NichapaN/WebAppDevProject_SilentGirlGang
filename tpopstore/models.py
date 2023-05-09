@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 
+from userprofile.models import Agency
 
 class ProductManager(models.Manager):
     def get_queryset(self):
@@ -23,12 +24,16 @@ class Category(models.Model):
 
 class Artist(models.Model):
     artist_name = models.CharField(max_length=255, blank=True, null=True)
+    agency = models.ForeignKey(Agency, related_name='artist', on_delete=models.CASCADE, null=True, blank=True)
+    image = models.ImageField(upload_to='images/', default='images/default.png')
+    slug = models.SlugField(max_length=255, default='slug')
 
     def __str__(self):
         return self.artist_name
 
     class Meta:
         ordering = ['artist_name']
+    
 
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='product', on_delete=models.CASCADE)
@@ -40,6 +45,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='images/', default='images/default.png')
     slug = models.SlugField(max_length=255)
     price = models.DecimalField(max_digits=20, decimal_places=2)
+    inventory = models.IntegerField(default=0)
     in_stock = models.BooleanField(default=True)
     is_active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)

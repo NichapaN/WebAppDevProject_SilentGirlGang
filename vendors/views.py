@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 
-from tpopstore.models import Category, Product
+from tpopstore.models import Artist, Category, Product
 
 # Create your views here.
 def product_listing(request):
@@ -19,9 +19,9 @@ def edit_product_details(request, vendors_product):
     })
 
 def artists(request):
-    products = Product.objects.all()
+    artists = Artist.objects.all()
     return render(request, 'vendors/artists.html', {
-        'products': products # to be edited to
+        'artists': artists # to be edited to
     })
 
 def account(request):
