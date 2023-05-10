@@ -14,7 +14,7 @@ class ArtistAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['title', 'author', 'artist', 'slug', 'price', 'inventory'
+    list_display = ['title', 'author', 'user_id', 'artist', 'slug', 'price', 'inventory'
                     , 'inventory_status', 'in_stock', 'created', 'updated']
     list_filter = ['in_stock', 'is_active']
     list_editable = ['price', 'inventory', 'in_stock']
@@ -25,3 +25,4 @@ class ProductAdmin(admin.ModelAdmin):
         if product.inventory < 10:
             return 'Low'
         return 'OK'
+    

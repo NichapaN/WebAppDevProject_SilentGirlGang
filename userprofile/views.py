@@ -35,7 +35,7 @@ def agencysignup(request):
 
             login(request, user)
 
-            return redirect('tpopstore:product_all')
+            return redirect('userprofile:agencylogin')
     else:
         form = AgencySignUpForm()
 
