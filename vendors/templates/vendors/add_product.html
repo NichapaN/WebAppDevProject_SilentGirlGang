@@ -1,0 +1,17 @@
+{% extends 'vendors/base.html' %}
+
+{% block tite %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h1 class="title p-2 text-3xl font-bold text-center">{{ title }}</h1>
+    {% comment %} <a href="{% url 'vendors:add_product' %}" 
+        class="w-1/6 py-2 my-auto border-2 border-gray-300 rounded-lg text-gray-300 text-center hover:border-gray-400 hover:text-gray-400 hover:font-medium">
+        Add product</a> {% endcomment %}
+    <form method="post" action="." enctype="multipart/form-data"
+        class="box-content mt-6 ml-10 px-8 py-8 bg-gray-100 shadow-md rounded-xl space-y-4">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button class="px-6 py-2 bg-pink-300 rounded-lg text-white hover:bg-pink-400">{{ button }}</button>
+{% endblock %}

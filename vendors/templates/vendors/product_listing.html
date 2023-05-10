@@ -1,0 +1,38 @@
+{% extends 'vendors/base.html' %}
+
+{% block tite %}Product listing{% endblock %}
+
+{% block content %}
+<div class="flex flex-col">
+    <div class="flex flex-row justify-between">
+        <div class="title p-4 text-3xl font-bold">My Products</div>
+        <a href="{% url 'vendors:add_product' %}" 
+            class="w-1/6 py-2 my-auto border-2 border-gray-300 rounded-lg text-gray-300 text-center hover:border-gray-400 hover:text-gray-400 hover:font-medium">
+            Add product</a>
+    </div>
+    <header class="grid grid-cols-5 p-4 items-center justify-between border-b-4">
+        <div class="image font-bold text-gray-600">Image</div>
+        <div class="product font-bold text-gray-600">Product</div>
+        <div class="category font-bold text-gray-600">Artist</div>
+        <div class="price font-bold text-gray-600">Price</div>
+        <div class="inventory font-bold text-gray-600">Inventory</div>
+    </header>
+
+    {% comment %} {% if request.user.products %} {% endcomment %}
+        {% for product in products %}
+            <div class="product w-full p-2">
+                <a href="{% url 'vendors:edit_product' product.id %}" class="grid grid-cols-5 p-4 bg-gray-50 rounded-lg shadow-md hover:bg-gray-100 hover:shadow-gray-500/50">
+                    <img class="img-fluid object-fill h-20 w-20 rounded-md" alt="Responsive image" src="{{ product.image.url }}">
+                    <h2 class="text-sm">{{ product.title }}</h2>
+                    <p>{{ product.artist }}</p>
+                    <p class="text-sm text-gray-600">{{ product.price }} baht</p>
+                    <p>{{ product.get_inventory_status }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    {% comment %} {% else %}
+        <p class="w-full py-8 mt-12 my-auto border-2 border-gray-300 rounded-lg text-4xl text-gray-300 text-center font-bold">
+            Empty Stock</p>
+    {% endif %} {% endcomment %}
+</div>
+{% endblock %}

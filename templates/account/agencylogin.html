@@ -1,0 +1,66 @@
+{% extends "account/base.html" %}
+{% block title %}Log-in{% endblock %}
+{% block content %}
+
+<style>
+    .container-fluid {
+        max-width: 100%;
+    }
+
+    .account-form input {
+        border: 2px solid #ccc;
+        height: calc(2em + .75rem + 2px);
+    }
+
+    .account-form input:focus {
+        border-color: #1497ff;
+        box-shadow: none;
+    }
+</style>
+
+
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <div class="col-md-12">
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-6  mx-auto">
+                            <h1 class="mb-4 text-4xl font-bold text-center">Login</h1>
+                            <form class="mx-auto mt-10 mb-10 account-form max-w-[50%] p-10 rounded-xl bg-gray-100 shadow-md space-y-4" action="{% url 'userprofile:agencylogin' %}" method="post">
+
+                                {% csrf_token %}
+
+                                {% if form.errors %}
+                                <div class="alert alert-primary" role="alert">
+                                    Error: Email or Password not correct!
+                                </div>
+                                {% endif %}
+
+                                <label class="form-label">{{ form.username.label}}</label>
+                                {{ form.username }}
+
+                                <label class="form-label">{{ form.password.label}}</label>
+                                {{ form.password }}
+                                <div class="d-grid gap-2">
+                                    <input type="hidden" name="next" value="{{ next }}">
+                                    <button class="btn btn-primary py-2 mb-4 mt-5 fw-bold" type="submit" value="Log-in">Login
+                                    </button>
+                                </div>
+                            </form>
+                            <p class="text-center pb-3">
+                                <a href="{% url 'userprofile:customersignup' %}"
+                                    class="border-0 rounded-full px-6 py-2 bg-pink-500 hover:bg-pink-400 text-white">
+                                    Create an account</a>
+                            </p>
+                            {% comment %} <p class="small text-center"> {% endcomment %}
+                                {% comment %} <a href="{% url 'userprofile:customersignup' %}">Help Center?</a> {% endcomment %}
+                            {% comment %} </p> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'account/base.html' %}
+
+{% block content %}
+<div class="signup-holder">
+    <div class="mt-10">
+        <h1 class="text-center mt-6 mb-6 text-4xl font-bold">Sign up</h1>
+        
+        <form method="post" action="." class="box-content max-w-[50%] px-8 py-8 mx-auto space-y-8 border-2 border-gray-50 shadow-lg rounded-3xl">
+            {% csrf_token %}
+
+            <div class="">
+                <label class="ml-16 mr-12">Username</label>
+                <input type="text" name="username" class="w-1/2 h-8 ml-10 shadow-inner rounded-md bg-slate-50">
+            </div>
+            
+            <div>
+                <label class="ml-16 mr-12">First name</label>
+                <input type="text" name="first_name" class="w-1/2 h-8 ml-10 shadow-inner rounded-md bg-slate-50">
+            </div>
+
+            <div>
+                <label class="ml-16 mr-12">Last name</label>
+                <input type="text" name="last_name" class="w-1/2 h-8 ml-10 shadow-inner rounded-md bg-slate-50">
+            </div>
+
+            <div>
+                <label class="ml-16 mr-16">E-mail</label>
+                <input type="email" name="email" class="w-1/2 h-8 ml-14 shadow-inner rounded-md bg-slate-50">
+            </div>
+
+            <div>
+                <label class="ml-16 mr-16">Phone</label>
+                <input type="text" name="phone" class="w-1/2 h-8 ml-14 shadow-inner rounded-md bg-slate-50">
+            </div>
+
+            <div>
+                <label class="ml-16 mr-14">Password</label>
+                <input type="password" name="password1" class="w-1/2 h-8 ml-10 shadow-inner rounded-md bg-slate-50">
+            </div>
+
+            <div>
+                <label class="ml-16">Confirm pasword</label>
+                <input type="password" name="password2" class="w-1/2 h-8 ml-10 shadow-inner rounded-md bg-slate-50">
+            </div>
+
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="p-6 bg-red-200 text-red-800 rounded-xl">
+                            <p>{{ error|escape }}</p>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+
+                {% for error in form.non_field_errors %}
+                    <div class="p-6 bg-red-200 text-red-800 rounded-xl">
+                        <p>{{ error|escape }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <div class="ml-[40%]">
+                <button class="mt-2 mb-4 px-8 py-2 bg-gray-300 rounded-full text-white hover:bg-pink-500">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
