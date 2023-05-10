@@ -4,6 +4,7 @@ from django import forms
 #User = get_user_model()
 from .models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.db import models
 
 
 
@@ -23,11 +24,11 @@ class AgencySignUpForm(UserCreationForm):
     agency_name = forms.CharField(max_length=255, required=True)
     email = forms.EmailField(max_length=255, required=True)
     phone = forms.CharField(max_length=10, required=True)
-    
-
+    #image = forms.ImageField(upload_to='userprofile/')
+    address = forms.CharField(max_length=255, required=True)
     class Meta:
         model = User
-        fields = ['username', 'agency_name', 'email', 'phone', 'password1', 'password2',]
+        fields = ['username', 'agency_name', 'email', 'phone', 'address', 'password1', 'password2',]
 
 
 class UserLoginForm(AuthenticationForm):
