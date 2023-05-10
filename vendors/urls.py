@@ -12,4 +12,5 @@ urlpatterns = [
     path('artists/', views.artists, name="artists"),
     path('<slug:vendors_product>/', views.edit_product_details, name="editproductdetails"),
     path('edit-product/<int:pk>/', views.edit_product, name="edit_product"),
+    path('edit-artist/<int:pk>/', views.edit_artist, name="edit_artist"),
 ]

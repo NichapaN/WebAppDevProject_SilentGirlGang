@@ -26,10 +26,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-lg-6  mx-auto">
-                            <form class="account-form p-4 rounded" action="{% url 'userprofile:customerlogin' %}" method="post">
+                            <h1 class="mb-4 text-4xl font-bold text-center">Login</h1>
+                            <form class="mx-auto mt-10 mb-10 account-form max-w-[50%] p-10 rounded-xl bg-gray-100 shadow-md space-y-4" action="{% url 'userprofile:customerlogin' %}" method="post">
 
                                 {% csrf_token %}
-                                <h3 class="mb-4">Login</h3>
 
                                 {% if form.errors %}
                                 <div class="alert alert-primary" role="alert">
@@ -38,19 +38,21 @@
                                 {% endif %}
 
                                 <label class="form-label">{{ form.username.label}}</label>
-                                {{ form.username}}
+                                {{ form.username }}
 
                                 <label class="form-label">{{ form.password.label}}</label>
-                                {{ form.password}}
+                                {{ form.password }}
                                 <div class="d-grid gap-2">
                                     <input type="hidden" name="next" value="{{ next }}">
                                     <button class="btn btn-primary py-2 mb-4 mt-5 fw-bold" type="submit" value="Log-in">Login
                                     </button>
                                 </div>
-                                <p class="text-center pb-3">
-                                    <a href="{% url 'userprofile:customersignup' %}">Create an account</a>
-                                </p>
                             </form>
+                            <p class="text-center pb-3">
+                                <a href="{% url 'userprofile:customersignup' %}"
+                                    class="border-0 rounded-full px-6 py-2 bg-pink-500 hover:bg-pink-400 text-white">
+                                    Create an account</a>
+                            </p>
                             {% comment %} <p class="small text-center"> {% endcomment %}
                                 {% comment %} <a href="{% url 'userprofile:customersignup' %}">Help Center?</a> {% endcomment %}
                             {% comment %} </p> {% endcomment %}
